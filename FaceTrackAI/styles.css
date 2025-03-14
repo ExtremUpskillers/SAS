@@ -1,0 +1,190 @@
+/* Main Layout Styles */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f8f9fa;
+    overflow-x: hidden;
+}
+
+/* Sidebar Styles */
+.sidebar {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 100;
+    padding: 48px 0 0;
+    box-shadow: inset -1px 0 0 rgba(0, 0, 0, .1);
+    transition: all 0.3s;
+}
+
+.sidebar .nav-link {
+    font-weight: 500;
+    color: #ced4da;
+    padding: 0.75rem 1rem;
+    border-radius: 0.25rem;
+    margin: 0.2rem 0.5rem;
+    display: flex;
+    align-items: center;
+    transition: all 0.2s;
+}
+
+.sidebar .nav-link:hover {
+    color: #fff;
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.sidebar .nav-link.active {
+    color: #fff;
+    background-color: #5a5cff;
+}
+
+.sidebar .nav-link svg {
+    margin-right: 10px;
+}
+
+/* Main Content Area */
+main {
+    padding-top: 1.5rem;
+    min-height: 100vh;
+}
+
+/* Card Styles */
+.card {
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+    margin-bottom: 1.5rem;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.card-header {
+    background-color: #f8f9fa;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+    font-weight: 600;
+}
+
+/* Button Styles */
+.btn-primary {
+    background-color: #5a5cff;
+    border-color: #5a5cff;
+}
+
+.btn-primary:hover {
+    background-color: #4749d6;
+    border-color: #4749d6;
+}
+
+/* Video Feed Styles */
+.video-container {
+    position: relative;
+    width: 100%;
+    border-radius: 10px;
+    overflow: hidden;
+    background-color: #000;
+}
+
+#video-feed {
+    width: 100%;
+    border-radius: 10px;
+}
+
+/* Recognition Status Indicators */
+.recognition-status {
+    margin-top: 1rem;
+    padding: 1rem;
+    border-radius: 8px;
+    text-align: center;
+    transition: all 0.3s;
+}
+
+.status-success {
+    background-color: rgba(40, 167, 69, 0.2);
+    border: 1px solid #28a745;
+    color: #28a745;
+}
+
+.status-failure {
+    background-color: rgba(220, 53, 69, 0.2);
+    border: 1px solid #dc3545;
+    color: #dc3545;
+}
+
+.status-processing {
+    background-color: rgba(255, 193, 7, 0.2);
+    border: 1px solid #ffc107;
+    color: #ffc107;
+}
+
+/* Audio Visualization */
+.audio-visualizer {
+    height: 60px;
+    width: 100%;
+    background-color: #343a40;
+    border-radius: 8px;
+    overflow: hidden;
+    margin-bottom: 1rem;
+}
+
+.audio-bars {
+    display: flex;
+    height: 100%;
+    align-items: flex-end;
+    justify-content: space-between;
+    padding: 0 5px;
+}
+
+.audio-bar {
+    width: 5px;
+    background-color: #5a5cff;
+    margin: 0 1px;
+    transition: height 0.1s ease;
+}
+
+/* Attendance List */
+.attendance-list {
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.attendance-item {
+    padding: 0.75rem;
+    border-bottom: 1px solid #e9ecef;
+    display: flex;
+    align-items: center;
+}
+
+.attendance-item img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 15px;
+    object-fit: cover;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .sidebar {
+        position: static;
+        height: auto;
+        padding-top: 0;
+    }
+    
+    main {
+        margin-left: 0 !important;
+    }
+}
+
+/* Loading Animation */
+#loading {
+    margin: 50px auto;
+}
+
+/* Toast Notifications */
+.toast {
+    position: relative;
+    opacity: 1 !important;
+}

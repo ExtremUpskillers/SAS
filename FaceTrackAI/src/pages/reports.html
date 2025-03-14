@@ -1,0 +1,133 @@
+<div class="row">
+    <div class="col-12">
+        <h2 class="mb-4">Attendance Reports</h2>
+        <p class="text-muted">View and export attendance data for analysis and record-keeping.</p>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-4">
+        <div class="card">
+            <div class="card-header">
+                <h5>Report Filters</h5>
+            </div>
+            <div class="card-body">
+                <form id="report-filter-form">
+                    <div class="mb-3">
+                        <label for="date-range" class="form-label">Date Range</label>
+                        <select class="form-select" id="date-range">
+                            <option value="today">Today</option>
+                            <option value="yesterday">Yesterday</option>
+                            <option value="this_week">This Week</option>
+                            <option value="last_week">Last Week</option>
+                            <option value="this_month">This Month</option>
+                            <option value="custom">Custom Range</option>
+                        </select>
+                    </div>
+                    
+                    <div id="custom-date-range" class="mb-3 d-none">
+                        <div class="row">
+                            <div class="col-6">
+                                <label for="start-date" class="form-label">Start Date</label>
+                                <input type="date" class="form-control" id="start-date">
+                            </div>
+                            <div class="col-6">
+                                <label for="end-date" class="form-label">End Date</label>
+                                <input type="date" class="form-control" id="end-date">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="session-filter" class="form-label">Session</label>
+                        <select class="form-select" id="session-filter">
+                            <option value="">All Sessions</option>
+                            <!-- Sessions will be loaded dynamically -->
+                        </select>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="student-filter" class="form-label">Student</label>
+                        <select class="form-select" id="student-filter">
+                            <option value="">All Students</option>
+                            <!-- Students will be loaded dynamically -->
+                        </select>
+                    </div>
+                    
+                    <div class="d-grid gap-2">
+                        <button type="submit" class="btn btn-primary">Generate Report</button>
+                        <button type="button" id="export-csv" class="btn btn-outline-secondary">Export to CSV</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    
+    <div class="col-md-8">
+        <div class="card">
+            <div class="card-header">
+                <h5>Report Results</h5>
+            </div>
+            <div class="card-body">
+                <div class="report-summary mb-4">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="card bg-light">
+                                <div class="card-body text-center">
+                                    <h6>Total Sessions</h6>
+                                    <h3 id="total-sessions">0</h3>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="card bg-light">
+                                <div class="card-body text-center">
+                                    <h6>Total Students</h6>
+                                    <h3 id="total-students">0</h3>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="card bg-light">
+                                <div class="card-body text-center">
+                                    <h6>Attendance Rate</h6>
+                                    <h3 id="attendance-rate">0%</h3>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="report-visualization mb-4">
+                    <canvas id="attendance-chart"></canvas>
+                </div>
+                
+                <div class="report-table">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>Date</th>
+                                <th>Session</th>
+                                <th>Student ID</th>
+                                <th>Student Name</th>
+                                <th>Time</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody id="report-table-body">
+                            <!-- Report data will be loaded here -->
+                        </tbody>
+                    </table>
+                    
+                    <div id="report-pagination" class="d-flex justify-content-center">
+                        <nav>
+                            <ul class="pagination">
+                                <!-- Pagination will be generated here -->
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

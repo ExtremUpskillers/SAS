@@ -1,0 +1,114 @@
+<div class="row">
+    <div class="col-12">
+        <h2 class="mb-4">Mark Attendance</h2>
+        <p class="text-muted">Dual authentication attendance system using face and voice recognition.</p>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-7">
+        <div class="card">
+            <div class="card-header d-flex justify-content-between align-items-center">
+                <h5>Recognition Panel</h5>
+                <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" id="attendance-active">
+                    <label class="form-check-label" for="attendance-active">Active</label>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-8">
+                        <div class="video-container mb-3">
+                            <video id="video-feed" autoplay playsinline></video>
+                            <canvas id="canvas-overlay" style="position: absolute; top: 0; left: 0;"></canvas>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="recognition-status" id="face-recognition-status">
+                            <h6>Face Recognition</h6>
+                            <div class="spinner-border spinner-border-sm text-primary" role="status" id="face-spinner">
+                                <span class="visually-hidden">Loading...</span>
+                            </div>
+                            <p id="face-status-text">Waiting...</p>
+                        </div>
+                        
+                        <div class="recognition-status mt-3" id="voice-recognition-status">
+                            <h6>Voice Recognition</h6>
+                            <div class="spinner-border spinner-border-sm text-primary" role="status" id="voice-spinner">
+                                <span class="visually-hidden">Loading...</span>
+                            </div>
+                            <p id="voice-status-text">Waiting...</p>
+                        </div>
+                        
+                        <div class="audio-visualizer mt-3">
+                            <div class="audio-bars" id="audio-bars"></div>
+                        </div>
+                        
+                        <div class="d-grid mt-3">
+                            <button id="record-attendance-voice" class="btn btn-primary" disabled>Record Voice</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="row mt-4">
+                    <div class="col-12">
+                        <div class="alert alert-info" id="attendance-prompt">
+                            Please say: "My name is [your name] and I am present today."
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="row mt-3">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="session-select">Select Session</label>
+                            <select class="form-select" id="session-select">
+                                <option value="">Select a session</option>
+                                <!-- Sessions will be loaded dynamically -->
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="new-session">Create New Session</label>
+                            <div class="input-group">
+                                <input type="text" class="form-control" id="new-session" placeholder="Session name">
+                                <button class="btn btn-outline-secondary" type="button" id="create-session">Create</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="col-md-5">
+        <div class="card">
+            <div class="card-header">
+                <h5>Today's Attendance</h5>
+            </div>
+            <div class="card-body">
+                <div id="current-session-info" class="mb-3">
+                    <p class="mb-1">Current Session: <span id="current-session-name">None</span></p>
+                    <p class="mb-0">Date: <span id="current-date"></span></p>
+                </div>
+                
+                <div class="attendance-list" id="attendance-list">
+                    <!-- Attendance entries will be loaded here -->
+                    <div class="text-center py-4 text-muted">
+                        <i data-feather="users" style="width: 40px; height: 40px;"></i>
+                        <p class="mt-2">No attendance records yet</p>
+                    </div>
+                </div>
+            </div>
+            <div class="card-footer">
+                <div class="d-flex justify-content-between">
+                    <span>Total present: <span id="total-present">0</span></span>
+                    <button class="btn btn-sm btn-outline-primary" id="refresh-attendance">
+                        <i data-feather="refresh-cw"></i> Refresh
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

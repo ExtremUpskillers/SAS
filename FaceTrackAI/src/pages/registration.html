@@ -1,0 +1,82 @@
+<div class="row">
+    <div class="col-12">
+        <h2 class="mb-4">Student Registration</h2>
+        <p class="text-muted">Register a new student with facial and voice data for attendance tracking.</p>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-header">
+                <h5>Student Information</h5>
+            </div>
+            <div class="card-body">
+                <form id="registration-form">
+                    <div class="mb-3">
+                        <label for="student-id" class="form-label">Student ID</label>
+                        <input type="text" class="form-control" id="student-id" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="student-name" class="form-label">Full Name</label>
+                        <input type="text" class="form-control" id="student-name" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="student-email" class="form-label">Email</label>
+                        <input type="email" class="form-control" id="student-email" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="student-course" class="form-label">Course</label>
+                        <input type="text" class="form-control" id="student-course" required>
+                    </div>
+                    <div class="d-grid">
+                        <button type="submit" class="btn btn-primary">Register Student</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    
+    <div class="col-md-6">
+        <div class="card mb-4">
+            <div class="card-header">
+                <h5>Face Capture</h5>
+            </div>
+            <div class="card-body">
+                <div class="video-container mb-3">
+                    <video id="video-feed" autoplay playsinline></video>
+                    <canvas id="canvas-feed" style="display: none;"></canvas>
+                </div>
+                <div class="d-flex justify-content-between mb-3">
+                    <button id="capture-face" class="btn btn-primary" disabled>Capture Face</button>
+                    <button id="clear-face" class="btn btn-outline-secondary" disabled>Clear</button>
+                </div>
+                <div class="face-capture-status" id="face-status">
+                    <p class="text-muted text-center">Click "Capture Face" to take a picture</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <h5>Voice Sample</h5>
+            </div>
+            <div class="card-body">
+                <div class="audio-visualizer mb-3">
+                    <div class="audio-bars" id="audio-bars"></div>
+                </div>
+                <p class="text-muted mb-3">Please read the following phrase when recording:</p>
+                <div class="alert alert-info" id="voice-phrase">
+                    "My name is [your name] and I am present today."
+                </div>
+                <div class="d-flex justify-content-between mb-3">
+                    <button id="record-voice" class="btn btn-primary" disabled>Record Voice</button>
+                    <button id="play-voice" class="btn btn-outline-secondary" disabled>Play</button>
+                </div>
+                <div class="voice-capture-status" id="voice-status">
+                    <p class="text-muted text-center">Click "Record Voice" to record your verification phrase</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
